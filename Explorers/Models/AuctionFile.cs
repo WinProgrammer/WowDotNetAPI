@@ -26,7 +26,7 @@ namespace WowDotNetAPI.Models
 
                 return (_auctions = auctions);
             }
-            set { }
+            set { _auctions = value; }
         }
     }
 }
