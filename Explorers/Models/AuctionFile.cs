@@ -13,7 +13,7 @@ namespace WowDotNetAPI.Models
         [IgnoreDataMember]
         private Auctions _auctions;
 
-        [DataMember(Name = "auctions")]
+        [DataMember(Name = "auctions", IsRequired = false)]
         public Auctions Auctions {
             get
             {
