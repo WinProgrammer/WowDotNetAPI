@@ -20,7 +20,7 @@ namespace WowDotNetAPI.Models
         WARLOCK = 9,
         MONK = 10,
         DRUID = 11,
-		DEMONHUNTER = 12
+        DEMONHUNTER = 12
     }
 
     [DataContract]
@@ -133,7 +133,10 @@ namespace WowDotNetAPI.Models
 
         [DataMember(Name = "quests")]
         public IEnumerable<int> Quests { get; set; }
-        
+
+        [DataMember(Name = "statistics")]
+        public CharacterStatistics Statistics { get; set; }
+
         [DataMember(Name = "totalHonorableKills")]
         public int TotalHonorableKills { get; set; }
 
