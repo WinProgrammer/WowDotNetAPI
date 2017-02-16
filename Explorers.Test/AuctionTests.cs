@@ -19,8 +19,10 @@ namespace WowDotNetAPI.Explorers.Test
         [TestMethod]
         public void Get_Auction_Data()
         {
-            Auctions auctions = explorer.GetAuctions("skullcrusher");
-            Assert.IsTrue(auctions.CurrentAuctions.Count() > 0);
-        }
-    }
+			AuctionFiles auctions = explorer.GetAuctions("Aerie Peak");
+			Assert.IsTrue(auctions.Files.Count() > 0);
+			//Auctions auctions = explorer.GetAuctions("skullcrusher");
+			//Assert.IsTrue(auctions.CurrentAuctions.Count() > 0);
+		}
+	}
 }
