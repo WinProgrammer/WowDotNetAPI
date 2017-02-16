@@ -297,7 +297,7 @@ namespace WowDotNetAPI
         /// </summary>
         /// <param name="realm">The name of the realm to base the search on</param>
         /// <returns>Auctions object for the given realm.</returns>
-        public Auctions GetAuctions(string realm)
+        public AuctionFiles GetAuctions(string realm)
         {
             AuctionFiles auctionFiles;
 
@@ -305,22 +305,7 @@ namespace WowDotNetAPI
                 string.Format(@"{0}/wow/auction/data/{1}?locale={2}&apikey={3}", Host, realm.ToLower().Replace(' ', '-'), Locale, APIKey),
                 out auctionFiles);
 
-            if (auctionFiles != null)
-            {
-                string url = "";
-                foreach (AuctionFile auctionFile in auctionFiles.Files)
-                {
-                    url = auctionFile.URL;
-                }
-
-                Auctions auctions;
-
-                TryGetData<Auctions>(url, out auctions);
-
-                return auctions;
-            }
-
-            return null;
+            return auctionFiles;
         }
 
         #endregion
@@ -561,7 +546,7 @@ namespace WowDotNetAPI
             return JsonUtility.FromJSON<T>(url);
         }
 
-        private void TryGetData<T>(string url, out T requestedObject) where T : class
+        public static void TryGetData<T>(string url, out T requestedObject) where T : class
         {
             try
             {
